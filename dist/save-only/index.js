@@ -3794,7 +3794,7 @@ function getCompressionProgram(tarPath, compressionMethod) {
                     ]
                     : ['--use-compress-program', IS_WINDOWS ? '"zstd -T0"' : 'zstdmt'];
             default:
-                return ['-z'];
+                return ['--use-compress-program', '"pigz"'];
         }
     });
 }
