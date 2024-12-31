@@ -3671,9 +3671,7 @@ function getTarArgs(tarPath, compressionMethod, type, archivePath = '') {
                     ? tarFile
                     : cacheFileName.replace(new RegExp(`\\${path.sep}`, 'g'), '/'), '--exclude', BSD_TAR_ZSTD
                     ? tarFile
-                    : cacheFileName.replace(new RegExp(`\\${path.sep}`, 'g'), '/'),
-                    '--use-compress-program=pigz',
-                    '-P', '-C', workingDirectory.replace(new RegExp(`\\${path.sep}`, 'g'), '/'), '--files-from', constants_1.ManifestFilename);
+                    : cacheFileName.replace(new RegExp(`\\${path.sep}`, 'g'), '/'), '-P', '-C', workingDirectory.replace(new RegExp(`\\${path.sep}`, 'g'), '/'), '--files-from', constants_1.ManifestFilename);
                 break;
             case 'extract':
                 args.push('-xf', BSD_TAR_ZSTD
@@ -3759,7 +3757,7 @@ function getDecompressionProgram(tarPath, compressionMethod, archivePath) {
                     ]
                     : ['--use-compress-program', IS_WINDOWS ? '"zstd -d"' : 'unzstd'];
             default:
-                return ['-z'];
+                return ['--use-compress-program', '"pigz"'];
         }
     });
 }
