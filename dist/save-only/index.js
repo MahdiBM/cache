@@ -3667,11 +3667,13 @@ function getTarArgs(tarPath, compressionMethod, type, archivePath = '') {
         // Method specific args
         switch (type) {
             case 'create':
-                args.push('--posix', '-cf', '--use-compress-program="pigz -r"', BSD_TAR_ZSTD
+                args.push('--posix', '-cf', BSD_TAR_ZSTD
                     ? tarFile
                     : cacheFileName.replace(new RegExp(`\\${path.sep}`, 'g'), '/'), '--exclude', BSD_TAR_ZSTD
                     ? tarFile
-                    : cacheFileName.replace(new RegExp(`\\${path.sep}`, 'g'), '/'), '-P', '-C', workingDirectory.replace(new RegExp(`\\${path.sep}`, 'g'), '/'), '--files-from', constants_1.ManifestFilename);
+                    : cacheFileName.replace(new RegExp(`\\${path.sep}`, 'g'), '/'),
+                    '--use-compress-program=\'pigz -r\'',
+                    '-P', '-C', workingDirectory.replace(new RegExp(`\\${path.sep}`, 'g'), '/'), '--files-from', constants_1.ManifestFilename);
                 break;
             case 'extract':
                 args.push('-xf', BSD_TAR_ZSTD
