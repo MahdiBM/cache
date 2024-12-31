@@ -3672,7 +3672,7 @@ function getTarArgs(tarPath, compressionMethod, type, archivePath = '') {
                     : cacheFileName.replace(new RegExp(`\\${path.sep}`, 'g'), '/'), '--exclude', BSD_TAR_ZSTD
                     ? tarFile
                     : cacheFileName.replace(new RegExp(`\\${path.sep}`, 'g'), '/'),
-                    '--use-compress-program=\'pigz -r\'',
+                    '--use-compress-program=pigz',
                     '-P', '-C', workingDirectory.replace(new RegExp(`\\${path.sep}`, 'g'), '/'), '--files-from', constants_1.ManifestFilename);
                 break;
             case 'extract':
