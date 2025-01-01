@@ -23,7 +23,7 @@
   "author": "GitHub",
   "license": "MIT",
   "dependencies": {
-    "@actions/cache": "github:mahdibm/toolkit#a529cb948f6dc026203510b263c020a9fa85057b",
+    "@actions/cache": "github:mahdibm/toolkit#cd3d2c86b624eb8e2927e43d60bd992fc4d58c40",
     "@actions/core": "^1.11.1",
     "@actions/exec": "^1.1.1",
     "@actions/io": "^1.1.3"
